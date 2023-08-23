@@ -22,10 +22,12 @@ public class C05_ActionsOdev extends TestBase {
         driver.get("http://szimek.github.io/signature_pad/");
 
         //- Çıkan ekrana istediğiniz çizgi yada şekli çiziniz
-        WebElement cizimAlani = driver.findElement(By.xpath("//canvas[@width='831']"));
+        WebElement ciz = driver.findElement(By.xpath("//*[@style='touch-action: none; user-select: none;']"));
+
         Actions actions=new Actions(driver);
-        actions.moveToElement(cizimAlani).clickAndHold().moveByOffset(100, 100).release().perform();
-        bekle(2);
+        actions.clickAndHold(ciz).moveByOffset(100,0).moveByOffset(0,100).
+                moveByOffset(50,50).moveByOffset(50,50).release().perform();
+        bekle(1);
 
         //- Çizimden sonra clear butonuna basınız
         driver.findElement(By.xpath("//*[text()='Clear']")).click();
@@ -36,4 +38,8 @@ public class C05_ActionsOdev extends TestBase {
 
 
     }
-}
+
+
+    }
+
+
